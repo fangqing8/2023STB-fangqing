@@ -14,14 +14,14 @@ library(RmecabKo)
 install_mecab("C:/Rlibs/mecab")
 library(RmecabKo)
 
-#뉴스 API 설정(Client_ID와 Client_Secret은 개인별로 추가)
+#뉴스 URL 작성(client ID와 Client Secret은 개인별로 추가)
 searchUrl <- "https://openapi.naver.com/v1/search/blog.xml"
 Client_ID <- "Ybwk0wH0tC0UDIzcrbZX"
 Client_Secret <- "Jws3cpUZQI"
 
-#뉴스 URL 작성(UTF-8로 암호화, API 요청할 URL 정의, 검색결과는 20로 요청)
-query <- URLencode(iconv("HUAWEI", "euc-kr", "UTF-8"))
-url <- paste(searchUrl, "?query=", query, "&display=20", sep="")
+#뉴스 URL 작성(UTF-8로 암호화, API 요청할 URL 정의, 검색결과는 100로 요청)
+query <- URLencode(iconv("화웨이", to="UTF-8"))
+url <- paste(searchUrl, "?query=", query, "&display=100&start=1&sort=sim", sep="")
 
 #문서 다운로드_URI 다운로드하기
 doc <- getURL(url, 
